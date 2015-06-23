@@ -4,10 +4,11 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
+    @user_count = User.count
     if params[:search]
-      @users = User.search(params[:search]).order(:followed_by).reverse
+      @users = User.search(params[:search]).order(:followed_by).reverse.page params[:page]
     else
-      @users = User.all.order(:followed_by).reverse
+      @users = User.order(:followed_by).page params[:page]
     end
   end
 

@@ -6,7 +6,7 @@
       <table class="table table-hover">
         <thead>
           <tr>
-            <th><%= @users.count %> total</th>
+            <th><%= "#{@users.count} of #{@user_count}" %></th>
             <th>User Details</th>
             <th>Following</th>
             <th>Followers</th>
@@ -36,6 +36,7 @@
           <% end %>
         </tbody>
       </table>
+      <div class="pagination"><%= paginate @users %></div>
     </div>
   </div>
 </div>
